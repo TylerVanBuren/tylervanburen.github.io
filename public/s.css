@@ -1,0 +1,156 @@
+/* ====== Autumn Sunshine Theme ====== */
+:root {
+  --bg: #fff8f0;          /* light cream background */
+  --fg: #3b2c20;          /* warm dark brown text */
+  --accent: #ff914d;      /* bright autumn orange */
+  --accent-dark: #d96d27; /* deeper burnt orange */
+  --highlight: #ffd27f;   /* golden sunlight */
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  line-height: 1.6;
+  background: var(--bg);
+  color: var(--fg);
+}
+
+/* Header & Navigation */
+header {
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  color: white;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+nav {
+  margin-top: 0.5rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 0.75rem;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Content */
+main {
+  max-width: 60ch;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+h2 {
+  color: var(--accent-dark);
+  border-bottom: 2px solid var(--highlight);
+  padding-bottom: 0.25rem;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+
+}
+
+/* Cards */
+.card {
+  background: white;
+  border-left: 5px solid var(--accent);
+  padding: 1rem;
+  margin: 1rem 0;
+  margin-bottom: 20px;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+  flex-grow: 1;
+}
+
+/* Footer */
+footer {
+  width: 100%;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  background: var(--highlight);
+  margin-top: 3rem;
+  position: fixed;
+  bottom: 0;
+}
+
+/* --- Full-page fading background slideshow (no JS) --- */
+html, body { height: 100%; }
+
+.slideshow {
+  position: fixed;
+  inset: 0;
+  z-index: -1;           /* keep it behind page content */
+  overflow: hidden;
+}
+
+/* each child is a full-viewport layer with an image */
+.slideshow > div {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  animation: bgfade 48s infinite;
+}
+
+/* set your images + staggered delays */
+.slideshow > div:nth-child(1) {
+  background-image: url("bg1.webp"); /* or .avif/.jpg */
+  animation-delay: 0s;
+}
+.slideshow > div:nth-child(2) {
+  background-image: url("bg2.webp");
+  animation-delay: 8s;
+}
+.slideshow > div:nth-child(3) {
+  background-image: url("bg3.webp");
+  animation-delay: 16s;
+}
+.slideshow > div:nth-child(4) {
+  background-image: url("bg4.webp");
+  animation-delay: 24s;
+}
+.slideshow > div:nth-child(5) {
+  background-image: url("bg5.webp");
+  animation-delay: 32s;
+}
+.slideshow > div:nth-child(6) {
+  background-image: url("bg6.webp");
+  animation-delay: 40s;
+}
+
+
+/* fade in (hold), fade out, then stay hidden until next cycle */
+@keyframes bgfade {
+  0%   { opacity: 0; }
+  5%   { opacity: 1; }
+  15%  { opacity: 1; }
+  20%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+/* make main content readable over photos */
+main {
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 248, 240, 0.85); /* matches your autumn cream */
+  border-radius: 0.5rem;
+  padding: 1.25rem;
+}
+
+/* accessibility*
+
