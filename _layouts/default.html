@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="{{ '/assets/js/slideshow-sync.js' | relative_url }}"></script>
+  <link rel="stylesheet" href="{{ '/assets/css/s.css' | relative_url }}">
+</head>
+<body>
+  {% include slideshow.html %}
+
+  <header>
+    <h1>{{ site.title }}</h1>
+    <nav aria-label="Main navigation">
+      {% for item in site.data.navigation %}
+        <a href="{{ item.url | relative_url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.title }}</a>
+      {% endfor %}
+    </nav>
+  </header>
+
+  <main>
+    <h2>{{ page.heading | default: page.title }}</h2>
+    {{ content }}
+  </main>
+
+  <footer>&copy; 2026 Server</footer>
+</body>
+</html>
