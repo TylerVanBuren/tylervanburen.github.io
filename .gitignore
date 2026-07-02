@@ -1,6 +1,6 @@
-.jekyll-cache/
-.bundle/
-vendor/
-Gemfile.lock
-Gemfile
-README.md
+docs/.jekyll-cache/
+docs/.bundle/
+docs/vendor/
+docs/Gemfile.lock
+docs/Gemfile
+docs/README.md
