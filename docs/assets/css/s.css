@@ -11,15 +11,13 @@
 html,
 body {
   min-height: 100%;
+  margin: 0;
 }
 
 body {
-  margin: 0;
-  padding-bottom: 4rem;
-  font-family: system-ui, sans-serif;
-  line-height: 1.6;
-  background: var(--bg);
-  color: var(--fg);
+  position: relative;
+  isolation: isolate;
+  background: #111;
 }
 
 /* Header & Navigation */
@@ -100,8 +98,25 @@ footer {
 .slideshow {
   position: fixed;
   inset: 0;
-  z-index: -1;
+  z-index: 0;
   overflow: hidden;
+
+  /* fallback in case animation/images fail */
+  background: #111 url("../img/bg1.webp") center / cover no-repeat;
+
+  /* important fallback */
+  --slideshow-phase: 0s;
+}
+
+/* Put actual page above the slideshow */
+.site-content,
+header {
+  position: relative;
+},
+main,
+footer {
+  position: relative;
+  z-index: 0;
 }
 
 .slideshow > div {
@@ -111,6 +126,9 @@ footer {
   background-position: center;
   opacity: 0;
   animation: bgfade 48s infinite;
+
+
+
   animation-delay: calc(var(--base-delay) - var(--slideshow-phase));
 }
 
