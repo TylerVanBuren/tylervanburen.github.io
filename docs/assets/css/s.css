@@ -15,14 +15,13 @@
   box-sizing: border-box;
 }
 
-html {
-  min-height: 100%;
+html, body {
+  min-height: 100vh;
 }
 
 body {
   margin: 0;
   min-height: 100vh;
-  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   font-family: system-ui, sans-serif;
@@ -34,10 +33,13 @@ body {
 /* Header & Navigation */
 header {
   flex: 0 0 auto;
+  width: 100%;
   background: linear-gradient(135deg, var(--accent), var(--accent-dark));
   color: white;
   padding: 1.5rem;
   text-align: center;
+  position:fixed;
+  z-index: 10;
 }
 
 header h1 {
@@ -63,10 +65,11 @@ nav a[aria-current="page"] {
 
 /* Content */
 main {
+  margin-top: 500px; /* Must match or exceed the header's height */
   width: min(60ch, calc(100% - 2rem));
-  margin: 2rem auto;
+  margin: 10rem auto;
   padding: 1.25rem;
-  position: relative;
+  position:relative;
   z-index: 1;
   background: rgba(255, 248, 240, 0.85);
   border-radius: 0.5rem;
@@ -80,8 +83,10 @@ h2 {
 
 .card-container {
   display: flex;
+  transform: translateY(2rem);
   flex-direction: column;
   align-items: stretch;
+  bottom: 0;
 }
 
 /* Cards */
@@ -103,6 +108,9 @@ footer {
   padding: 1rem;
   font-size: 0.9rem;
   background: var(--highlight);
+  position: fixed;
+  bottom: 0;
+  z-index: 1;
 }
 
 /* Full-page fading background slideshow */
