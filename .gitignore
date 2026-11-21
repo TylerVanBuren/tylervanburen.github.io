@@ -1,7 +1,6 @@
 docs/.jekyll-cache/
 docs/.bundle/
 docs/vendor/
-docs/Gemfile.lock
 docs/Gemfile
 docs/README.md
 docs/_site/
